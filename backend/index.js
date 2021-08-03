@@ -3,6 +3,7 @@ import cors from 'cors';
 import logger from "morgan";
 import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
+import indexRoute from './routes/index.js';
 
 dotenv.config();
 
@@ -17,9 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 3030;
 
-app.get('/',(req,res)=>{
-    res.send('Hello')
-})
+app.use('api/v1/memories', indexRoute)
+
+app.get("/", (_req, res) => {
+    res.redirect("/api/v1/memories");
+  });
 
 app.listen(port,()=>{
     console.log(`Server is runing on port ${port}`)
