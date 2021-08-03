@@ -3,7 +3,7 @@ import testRoutes from './post.js';
 
 const router = express.Router();
 
-router.use('/post',testRoutes)
+router.use('/posts',testRoutes)
 
 
 export default router;
