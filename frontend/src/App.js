@@ -1,10 +1,13 @@
+import {Container,AppBar,Typography,Grow,Grid} from '@material-ui/core';
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <Container maxWidth='lg'>
+        <AppBar position="static" color="inherit">
+
+        </AppBar>
+    </Container>
   );
 }
 
