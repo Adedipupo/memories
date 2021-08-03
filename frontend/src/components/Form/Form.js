@@ -3,7 +3,7 @@ import {TextField,Button,Typography,Paper} from '@material-ui/core';
 import useStyles from './styles';
 
 const Form = () => {
-    cosnt [postData,setPostData] = useState({author: '', title: '', message: '', tags: '',selectedFile: ''})
+    const [postData,setPostData] = useState({author: '', title: '', message: '', tags: '',selectedFile: ''})
     const classes = useStyles();
 
     const handleSubmit = (e)=>{
@@ -20,7 +20,7 @@ const Form = () => {
                    label="Author" 
                    fullWidth 
                    value={postData.author}
-                   onChange={}    
+                   onChange={(e)=>setPostData({...postData, author: e.target.value})}    
                    />
                 </form>
             </Paper>
