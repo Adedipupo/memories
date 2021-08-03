@@ -16,7 +16,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const port = process.env.PORT || 3030;
+const port = process.env.PORT || 5000;
 
 app.use('/api/v1/memories', indexRoute)
 
