@@ -19,7 +19,7 @@ export const getPosts = async(req,res)=>{
     try {
         const posts = await PostMessage.find();
 
-        if(post){
+        if(posts){
             return res.status(200).json({message:'Success',Posts: posts})
         }else{
             return res.status(404).json({message: 'No Post Found'})
