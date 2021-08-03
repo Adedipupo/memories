@@ -1,7 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import logger from "morgan";
+import dotenv from 'dotenv';
+import { connectDB } from './config/db.js';
 
+dotenv.config();
+
+connectDB();
 
 const app = express();
 
