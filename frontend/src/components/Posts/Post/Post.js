@@ -11,7 +11,7 @@ const Post = ({post}) => {
 
     const classes = useStyles();
     return (
-        <Card>
+        <Card className={classes.card}>
           <CardMedia className={classes.media} image={post.selectedFile} title={post.title}/>   
           <div className={classes.overlay}>
              <Typography variant="h6">{post.author}</Typography>
@@ -28,11 +28,16 @@ const Post = ({post}) => {
           <CardContent>
             <Typography className={classes.title} variant="h5" gutterBottom>{post.message}</Typography>
           </CardContent>
-          <CardActions className={classes.CardActions}>
-             <Button size="small" color="primary onClick={()=>()}">
+          <CardActions className={classes.cardActions}>
+             <Button size="small" color="primary" onClick={()=>{}}>
                 <ThumbUpAltIcon fontSize="small" />
                 Like
                 {post.likeCount}
+             </Button>
+
+             <Button size="small" color="primary" onClick={()=>{}}>
+                <DeleteIcon fontSize="small" />
+                Delete
              </Button>
           </CardActions>
         </Card>
