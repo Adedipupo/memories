@@ -1,16 +1,18 @@
 import React from 'react'
 import useStyles from './styles';
 import { Card,CardMedia, CardActions,CardContent,Button,Typography} from '@material-ui/core';
-import {DeleteIcon,MoreHorizIcon,ThumbUpAltIcon} from '@material-ui/icon'
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import DeleteIcon from '@material-ui/icons/Delete';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 
-const Post = () => {
+const Post = ({post}) => {
 
     const classes = useStyles();
     return (
-        <div>
-            <h2>Post</h2>
-        </div>
+        <Card>
+          <CardMedia className={classes.media} image={Post.selectedFile} title={post.title}/>        
+        </Card>
     )
 }
 
