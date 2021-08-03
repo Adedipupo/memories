@@ -1,4 +1,4 @@
-import mongoose, { model } from 'mongoose';
+import mongoose from 'mongoose';
 
 const postSchema = mongoose.Schema({
     title: String,
@@ -16,5 +16,5 @@ const postSchema = mongoose.Schema({
     }
 })
 
-export const PostMessage = mongoose.model('PostMessage',postSchema);
+export const PostMessage = mongoose.model('PostMessage', postSchema);
 
