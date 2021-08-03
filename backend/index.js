@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 3030;
 
-app.use('api/v1/memories', indexRoute)
+app.use('/api/v1/memories', indexRoute)
 
 app.get("/", (_req, res) => {
     res.redirect("/api/v1/memories");
