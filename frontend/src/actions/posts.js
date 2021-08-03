@@ -3,8 +3,10 @@ import * as api from '../api';
 
 //Action Creators
 
-const getPosts = () => {
-    const action = {type: 'FETCH_ALL',payload:[]}
-
-    return action;
+const getPosts = () => async(dispatch) => {
+    try {
+        const {data}
+    } catch (error) {
+        
+    }
 }
