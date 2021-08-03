@@ -1,5 +1,5 @@
 import express from 'express';
-import testRoutes from './test.js';
+import testRoutes from './post.js';
 
 const router = express.Router();
 
