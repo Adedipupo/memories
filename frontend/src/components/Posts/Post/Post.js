@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Form = () => {
+const Post = () => {
     return (
         <div>
             <h2>Form</h2>
@@ -8,4 +8,4 @@ const Form = () => {
     )
 }
 
-export default Form
+export default Post
