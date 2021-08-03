@@ -14,3 +14,18 @@ export const createPost = async(req,res) =>{
         res.status(409).json({message: error.message});
     }
 }
+
+export const getPosts = async(req,res)=>{
+    try {
+        const posts = await PostMessage.find();
+
+        if(post){
+            return res.status(200).json({message:'Success',Posts: posts})
+        }else{
+            return res.status(404).json({message: 'No Post Found'})
+        }
+    } catch (error) {
+        res.status(409).json({message: error.message});
+
+    }
+}
