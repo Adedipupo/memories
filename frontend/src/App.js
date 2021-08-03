@@ -2,6 +2,7 @@ import React,{ useEffect} from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import Form from './components/Form/Form';
 import Posts from './components/Posts/Posts';
+import {getPosts} from './actions/posts';
 import memories from './images/memo.png'
 import useStyles from './styles';
 import {useDispatch} from 'react-redux';
@@ -12,8 +13,8 @@ function App() {
 
 
  useEffect(() => {
-
- }, [])
+  dispatch(getPosts())
+ }, [dispatch]);
   return (
     <Container maxwidth='lg'>
       <AppBar className={classes.appBar} position="static" color="inherit">
