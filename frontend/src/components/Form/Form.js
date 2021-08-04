@@ -9,7 +9,7 @@ import {useSelector} from 'react-redux';
 
 const Form = ({currentId,setCurrentId}) => {
     const [postData, setPostData] = useState({ author: '', title: '', message: '', tags: '', selectedFile: '' })
-    const posts = useSelector(state => state.posts)
+    const posts = useSelector(state => state.posts.find((p)=> p._id === currentId))
 
     const classes = useStyles();
     const dispatch = useDispatch();
