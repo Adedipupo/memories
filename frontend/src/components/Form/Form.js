@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import useStyles from './styles';
 import FileBase from 'react-file-base64';
@@ -9,10 +9,14 @@ import {useSelector} from 'react-redux';
 
 const Form = ({currentId,setCurrentId}) => {
     const [postData, setPostData] = useState({ author: '', title: '', message: '', tags: '', selectedFile: '' })
-    const posts = useSelector(state => currentId ? state.posts.find((p)=> p._id === currentId) : null)
+    const post = useSelector(state => currentId ? state.posts.find((p)=> p._id === currentId) : null)
 
     const classes = useStyles();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+      if(post) setPostData(post);
+    }, [post])
 
     const handleSubmit = (e) => {
         e.preventDefault()
