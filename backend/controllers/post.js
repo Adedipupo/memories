@@ -37,7 +37,7 @@ export const updatePost = async(req,res) => {
 
         if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).json({message: 'Invalid Id'})
 
-        const updatedPost = await PostMessage.findOneAndUpdate(_id,{post,_id},{new:true})
+        const updatedPost = await PostMessage.findOneAndUpdate(_id,{ ...post , _id },{new:true})
         res.status(203).json({message: 'Updated', data: updatedPost})
     } catch (error) {
         res.status(409).json({message: error.message});
