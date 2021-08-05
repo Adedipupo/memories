@@ -25,10 +25,12 @@ const Form = ({currentId,setCurrentId}) => {
         }else{
             dispatch(createPost(postData))
         }
+        clear();
     }
 
     const clear = (e) => {
-        e.preventDefault()
+        setCurrentId(null);
+        setPostData({ author: '', title: '', message: '', tags: '', selectedFile: '' });
     }
 
 
