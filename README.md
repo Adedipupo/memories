@@ -4,3 +4,9 @@
 # Setup:
 
 run yarn && yarn start for both client and server side to start the app
+
+
+Links :
+
+Frontend : https://pro-memories-webapp.netlify.app/
+Backend : https://pro-memories-web-app.herokuapp.com/
