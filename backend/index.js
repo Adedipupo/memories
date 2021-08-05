@@ -20,9 +20,10 @@ const port = process.env.PORT || 5000;
 
 app.use('/api/v1/memories', indexRoute)
 
-app.get("/", (_req, res) => {
-    res.redirect("/api/v1/memories");
-  });
+app.get('/',(req, res) => {
+  res.send('Welcome to memories API')
+})
+
 
 app.listen(port,()=>{
     console.log(`Server is runing on port ${port}`)
