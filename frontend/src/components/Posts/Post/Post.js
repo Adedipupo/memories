@@ -11,15 +11,10 @@ import {deletePost} from '../../../actions/posts'
 
 const Post = ({post,setCurrentId}) => {
 
-    const posts = useSelector(state => state.posts)
+    const dispatch = useDispatch();
 
     const classes = useStyles();
 
-    const handleDelete = () => {
-        if(currentId){
-            dispatch(deletePost())
-        }
-    }
     return (
         <Card className={classes.card}>
           <CardMedia className={classes.media} image={post.selectedFile} title={post.title}/>   
@@ -46,7 +41,7 @@ const Post = ({post,setCurrentId}) => {
                 {post.likeCount}
              </Button>
 
-             <Button size="small" color="primary" onClick={handleDelete}>
+             <Button size="small" color="primary" onClick={()=>dispatch(deletePost(post._id))}>
                 <DeleteIcon fontSize="small" />
                 Delete
              </Button>
