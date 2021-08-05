@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppBar, Typography, Toolbar, Avatar, Button  } from '@material-ui/core'
+import { Link } from 'react-router-dom';
 import useStyles from './styles';
 import memories from '../../images/memo.png'
 
