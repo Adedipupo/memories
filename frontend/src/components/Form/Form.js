@@ -28,8 +28,8 @@ const Form = ({currentId,setCurrentId}) => {
         clear();
     }
 
-    const clear = (e) => {
-        setCurrentId(null);
+    const clear = () => {
+        setCurrentId(0);
         setPostData({ author: '', title: '', message: '', tags: '', selectedFile: '' });
     }
 
