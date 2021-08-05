@@ -1,8 +1,11 @@
 import React from 'react'
 import { Container, Grow, Grid } from '@material-ui/core';
+import useStyles from './styles';
 
 
 const Home = () => {
+    const classes  = useStyles( );
+
     return (
         <Grow in>
         <Container>
