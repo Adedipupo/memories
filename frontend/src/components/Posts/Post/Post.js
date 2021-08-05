@@ -36,7 +36,7 @@ const Post = ({post,setCurrentId}) => {
                 {post.likeCount}
              </Button>
 
-             <Button size="small" color="primary" onClick={()=>{}}>
+             <Button size="small" color="primary" onClick={()=>setCurrentId(post._id)}>
                 <DeleteIcon fontSize="small" />
                 Delete
              </Button>
