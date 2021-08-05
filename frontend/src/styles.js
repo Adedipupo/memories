@@ -15,4 +15,7 @@ export default makeStyles(() => ({
   image: {
     marginLeft: '15px',
   },
+  mainContainer: {
+    direction: "column-reverse" 
+  }
 }));
