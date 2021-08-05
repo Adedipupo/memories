@@ -3,7 +3,6 @@ import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import Form from './components/Form/Form';
 import Posts from './components/Posts/Posts';
 import {getPosts} from './actions/posts';
-import memories from './images/memo.png'
 import useStyles from './styles';
 import {useDispatch} from 'react-redux';
 
