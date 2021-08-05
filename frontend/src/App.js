@@ -1,10 +1,11 @@
 import React,{useState, useEffect} from 'react';
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import { Container, Grow, Grid } from '@material-ui/core';
 import Form from './components/Form/Form';
 import Posts from './components/Posts/Posts';
 import {getPosts} from './actions/posts';
 import useStyles from './styles';
 import {useDispatch} from 'react-redux';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const [currentId,setCurrentId] = useState(null);
@@ -17,7 +18,7 @@ function App() {
  }, [currentId ,dispatch]);
   return (
     <Container maxWidth='lg'>
-
+      <Navbar />
       <Grow in>
         <Container>
           <Grid container className={classes.mainContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
