@@ -12,7 +12,8 @@ export default makeStyles((theme) => ({
     padding: '10px 50px',
   },
   heading: {
-    color: 'rgba(78,0,168, 1)',    textDecoration: 'none',
+    color: 'rgba(78,0,168, 1)',    
+    textDecoration: 'none',
   },
   image: {
     marginLeft: '15px',
