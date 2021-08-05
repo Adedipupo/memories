@@ -18,10 +18,7 @@ function App() {
  }, [currentId ,dispatch]);
   return (
     <Container maxWidth='lg'>
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant='h4' align='center'>Memories</Typography>
-        <img className={classes.image} src={memories} alt="memories" height="80" />
-      </AppBar>
+
       <Grow in>
         <Container>
           <Grid container className={classes.mainContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
