@@ -4,15 +4,17 @@ import { PostMessage } from '../models/postMessage.js';
 
 
 
-export const createPost = async(req,res) =>{
-    const post = req.body;
+export const createPost = async (req, res) => {
+    const { title, message, selectedFile, creator, tags } = req.body;
 
-    const newPost = new PostMessage(post);
+    const newPostMessage = new PostMessage({ title, message, selectedFile, creator, tags })
+
     try {
-        await newPost.save();
-        res.status(201).json({message: 'Success', post: newPost});
+        await newPostMessage.save();
+
+        res.status(201).json(newPostMessage );
     } catch (error) {
-        res.status(409).json({message: error.message});
+        res.status(409).json({ message: error.message });
     }
 }
 
@@ -30,16 +32,25 @@ export const getPosts = async(req,res)=>{
     }
 }
 
-export const updatePost = async(req,res) => {
-    try {
-        const {id: _id} = req.params;
-        const post = req.body;
+export const updatePost = async (req, res) => {
+    const { id } = req.params;
+    const { title, message, creator, selectedFile, tags } = req.body;
+    
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-        if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).json({message: 'Invalid Id'})
+    const updatedPost = { creator, title, message, tags, selectedFile, _id: id };
 
-        const updatedPost = await PostMessage.findOneAndUpdate(_id,{ ...post , _id },{new:true})
-        res.status(203).json({message: 'Updated', data: updatedPost})
-    } catch (error) {
-        res.status(409).json({message: error.message});
-    }
+    await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
+
+    res.json(updatedPost);
+}
+
+export const deletePost = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+
+    await PostMessage.findByIdAndRemove(id);
+
+    res.json({ message: "Post deleted successfully." });
 }
