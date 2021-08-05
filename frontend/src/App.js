@@ -7,10 +7,15 @@ import Home from './components/Home/Home';
 function App() {
 
   return (
-    <Container maxWidth='lg'>
-      <Navbar />
-      <Home />
-    </Container>
+    <BrowserRouter>
+      <Container maxWidth='lg'>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact/>
+        </Switch>
+        <Home />
+      </Container>
+    </BrowserRouter>
   );
 }
 
