@@ -11,9 +11,8 @@ import {deletePost,likePost} from '../../../actions/posts'
 
 const Post = ({post,setCurrentId}) => {
 
+   const classes = useStyles();
     const dispatch = useDispatch();
-
-    const classes = useStyles();
 
     return (
         <Card className={classes.card}>
@@ -32,7 +31,7 @@ const Post = ({post,setCurrentId}) => {
           </div>     
             <Typography className={classes.title} variant="h5" gutterBottom>{post.title }</Typography>
           <CardContent>
-            <Typography variant="body2" gutterBottom>{post.message}</Typography>
+            <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
           </CardContent>
           <CardActions className={classes.cardActions}>
              <Button size="small" color="primary" onClick={()=>dispatch(likePost(post._id))}>
