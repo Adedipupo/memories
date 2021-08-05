@@ -6,6 +6,8 @@ import {getPosts} from './actions/posts';
 import useStyles from './styles';
 import {useDispatch} from 'react-redux';
 import Navbar from './components/Navbar/Navbar';
+import {BrowserRouter,Switch,Route} from 'react-router-dom';
+
 
 function App() {
   const [currentId,setCurrentId] = useState(null);
