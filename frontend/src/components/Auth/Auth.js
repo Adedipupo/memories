@@ -1,11 +1,13 @@
-import React from 'react'
-import { Avatar, Button, Paper, Grid, Typography, Container, TextField } from '@material-ui/core';
+import React,{useState} from 'react'
+import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import useStyles from './styles.js';
 import Input from './Input.js';
 
 
 const Auth = () => {
+    const [password,setPassword] = useState('');
+
     const classes = useStyles();
     const isSignup = false;
     const handleSubmit = (e) => {
@@ -32,6 +34,7 @@ const Auth = () => {
                         )
                     }
                     <Input name="email" label="Email Address" handleChange={handleChange} type="email"/>
+                    <Input name="password" label="Password" handleChange={handleChange} type="password"/>
                 </Grid>
               </form>
             </Paper>
