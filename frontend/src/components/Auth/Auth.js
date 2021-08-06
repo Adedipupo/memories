@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import useStyles from './styles.js';
 import Input from './Input.js';
 import Icon from './Icon.js';
+import { signin, signup } from '../../actions/auth.js';
 
 const initialState = {firstName: '',lastName: '', email: '', password: '', confirmPassword: ''}
 
