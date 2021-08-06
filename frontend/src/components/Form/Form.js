@@ -10,6 +10,7 @@ import {useSelector} from 'react-redux';
 const Form = ({currentId,setCurrentId}) => {
     const [postData, setPostData] = useState({ title: '', message: '', tags: '', selectedFile: '' })
     const post = useSelector(state => currentId ? state.posts.find((p)=> p._id === currentId) : null)
+    const user = JSON.parse(localStorage.getItem('profile'))
 
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const Form = ({currentId,setCurrentId}) => {
         if(currentId){
             dispatch(updatePost(currentId,postData))
         }else{
-            dispatch(createPost(postData))
+            dispatch(createPost({...postData,name: user?.result?.name}))
         }
         clear();
     }
