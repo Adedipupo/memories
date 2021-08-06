@@ -7,9 +7,10 @@ import Input from './Input.js';
 
 const Auth = () => {
     const [showPassword,setShowPassword] = useState(false);
+    const [isSignup, setIsSignup] = useState(false);
 
     const classes = useStyles();
-    const isSignup = false;
+    
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
     const handleSubmit = (e) => {
@@ -19,7 +20,7 @@ const Auth = () => {
         e.preventDefault()
     }
     const switchMode = () => {
-
+        if(isSignup )
     }
     return (
         <Container component="main" maxWidth="xs">
