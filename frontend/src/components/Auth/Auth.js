@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import {GoogleLogin} from 'react-ggogle-login';
+import {GoogleLogin} from 'react-google-login';
 import useStyles from './styles.js';
 import Input from './Input.js';
+import icon from './Icon.js';
 
 
 const Auth = () => {
@@ -53,7 +54,7 @@ const Auth = () => {
                         fullWidth 
                         onClick={renderProps.onClick} 
                         disabled={renderProps.disabled} 
-                        startIcon={<Icon/>}
+                        startIcon={<icon/>}
                         variant="contained"
                         >
                             Google Sign In
