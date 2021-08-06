@@ -26,8 +26,8 @@ const Auth = () => {
         handleShowPassword(false);
     }
 
-    const googleSuccess = () => {
-
+    const googleSuccess = (res) => {
+        console.log(res)
     }
 
     const googleFailure = () => {
