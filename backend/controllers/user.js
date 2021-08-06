@@ -5,25 +5,6 @@ import {UserModel} from "../models/user.js";
 
 const secret = 'test';
 
-export const signIn = async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const user = await UserModel.findOne({ email });
-
-    if (!user) return res.status(404).json({ message: "User doesn't exist" });
-
-    const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
-
-    if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
-
-    const token = jwt.sign({ email: user.email, id: user._id }, secret, { expiresIn: "1h" });
-
-    res.status(200).json({ result: user, token });
-  } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
-  }
-};
 
 export const signUp = async (req, res) => {
   const { email, password,confirmPassword, firstName, lastName } = req.body;
@@ -47,3 +28,25 @@ export const signUp = async (req, res) => {
     console.log(error);
   }
 };
+
+
+export const signIn = async (req, res) => {
+    const { email, password } = req.body;
+  
+    try {
+      const user = await UserModel.findOne({ email });
+      
+      if (!user) return res.status(404).json({ message: "User doesn't exist" });
+      
+      const isPasswordCorrect = await bcrypt.compare(password, user.password);
+      
+      if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
+      
+      console.log(user)
+      const token = jwt.sign({ email: user.email, id: user._id }, secret, { expiresIn: "1h" });
+  
+      res.status(200).json({ result: user, token });
+    } catch (err) {
+      res.status(500).json({ message: "Something went wrong" });
+    }
+  };
