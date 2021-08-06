@@ -20,7 +20,8 @@ const Auth = () => {
         e.preventDefault()
     }
     const switchMode = () => {
-        if(isSignup )
+        setIsSignup((prevIsSignup) => !prevIsSignup)
+        handleShowPassword(false);
     }
     return (
         <Container component="main" maxWidth="xs">
