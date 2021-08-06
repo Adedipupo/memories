@@ -2,6 +2,7 @@ import React from 'react'
 import { Avatar, Button, Paper, Grid, Typography, Container, TextField } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import useStyles from './styles.js';
+import Input from './Input.js';
 
 
 const Auth = () => {
@@ -25,7 +26,8 @@ const Auth = () => {
                     {
                         isSignup && (
                             <>
-                              <TextField name="firstName" label="First Name" handleChange={handleChange} autoFocus xs={6}/>
+                              <Input name="firstName" label="First Name" handleChange={handleChange} autoFocus half/>
+                              <Input name="lastName" label="Last Name" handleChange={handleChange} half/>
                             </>
                         )
                     }
