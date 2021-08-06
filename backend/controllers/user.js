@@ -5,7 +5,7 @@ import {UserModel} from "../models/user.js";
 
 const secret = 'test';
 
-export const signin = async (req, res) => {
+export const signIn = async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -25,7 +25,7 @@ export const signin = async (req, res) => {
   }
 };
 
-export const signup = async (req, res) => {
+export const signUp = async (req, res) => {
   const { email, password, firstName, lastName } = req.body;
 
   try {
