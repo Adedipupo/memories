@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { GoogleLogin } from 'react-google-login';
+import {useDispatch} from 'react-redux';
 import useStyles from './styles.js';
 import Input from './Input.js';
 import Icon from './Icon.js';
@@ -27,7 +28,14 @@ const Auth = () => {
     }
 
     const googleSuccess = async(res) => {
-        console.log(res)
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+
+        try {
+            dispatch({type: 'AUTH', data: {result,token}})
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const googleFailure = (error) => {
