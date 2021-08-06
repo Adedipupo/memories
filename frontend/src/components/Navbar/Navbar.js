@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { AppBar, Typography, Toolbar, Avatar, Button  } from '@material-ui/core'
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import memories from '../../images/memo.png'
@@ -10,7 +10,8 @@ const Navbar = () => {
     const classes  = useStyles();
 
    const history = useHistory(); 
-   const dispatch = useDispatch()
+   const dispatch = useDispatch();
+   const location = useLocation();
 
     const [user,setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     console.log(user)
@@ -20,10 +21,10 @@ const Navbar = () => {
       history.push('/')
     }
 
-    //   useEffect(() => {
-    //   const token = user?.token;
-    //   setUser(JSON.parse(localStorage.getItem('profile')))
-    // }, [])
+      useEffect(() => {
+      const token = user?.token;
+      setUser(JSON.parse(localStorage.getItem('profile')))
+    }, [location,user?.token])
 
 
     return (
