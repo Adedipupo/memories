@@ -25,6 +25,14 @@ const Auth = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup)
         handleShowPassword(false);
     }
+
+    const googleSuccess = () => {
+
+    }
+
+    const googleFailure = () => {
+        console.log("Google Sign In was unsuccessful. Try Again Later")
+    }
      
     return (
         <Container component="main" maxWidth="xs">
