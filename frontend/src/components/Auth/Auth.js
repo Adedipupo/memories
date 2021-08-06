@@ -39,7 +39,9 @@ const Auth = () => {
                     <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword}/>
                     {isSignup && <Input name="confirmPassword" label="Confirm Password" handleChange={handleChange} />}
                 </Grid>
-                <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}></Button>
+                <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                    {isSignup ? "Sign Up" : "Sign In"}
+                </Button>
               </form>
             </Paper>
         </Container>
