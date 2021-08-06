@@ -25,6 +25,7 @@ const Auth = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup)
         handleShowPassword(false);
     }
+     
     return (
         <Container component="main" maxWidth="xs">
             <Paper className={classes.paper} elevation={3}>
@@ -60,6 +61,9 @@ const Auth = () => {
                             Google Sign In
                         </Button>
                     }}
+                    onSuccess={googleSuccess}
+                    onFailure={googleFailure}
+                    cookiePolicy="single_host_origin"
                 />
                 <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
                     {isSignup ? "Sign Up" : "Sign In"}
