@@ -36,7 +36,7 @@ export const signUp = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 12);
 
     if(password != confirmPassword) return res.status(400).json({message: "Password mismatch"})
-    const result = await UserModal.create({ email, password: hashedPassword, name: `${firstName} ${lastName}` });
+    const result = await UserModel.create({ email, password: hashedPassword, name: `${firstName} ${lastName}` });
 
     const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
 
