@@ -1,9 +1,11 @@
 import { AUTH } from "../constants/actionTypes";
 
-export default (users = [],action) => {
+ const authReducer =  (state,action) => {
     switch (action.type) {
         case AUTH:
-            return action.payload;
+            console.log(action?.data)
         default:
-            return users;
+            break;
 }
+ }
+export default authReducer;
