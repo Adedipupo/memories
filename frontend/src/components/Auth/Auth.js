@@ -9,7 +9,7 @@ const Auth = () => {
     const [showPassword,setShowPassword] = useState(false);
 
     const classes = useStyles();
-    const isSignup = false;
+    const isSignup = true;
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
     const handleSubmit = (e) => {
