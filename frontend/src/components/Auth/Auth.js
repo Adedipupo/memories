@@ -6,9 +6,13 @@ import useStyles from './styles.js';
 const Auth = () => {
     const classes = useStyles();
     return (
-        <div>
-          <h1>Auth</h1>  
-        </div>
+        <Container component="main" maxWidth="xs">
+            <Paper className={classes.paper} elevation={3}>
+              <Avatar className={classes.avatar}>
+
+              </Avatar>
+            </Paper>
+        </Container>
     )
 }
 
