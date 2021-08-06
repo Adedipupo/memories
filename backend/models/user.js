@@ -7,4 +7,4 @@ const userSchema = mongoose.Schema({
   id: { type: String },
 });
 
-export default mongoose.model("User", userSchema);
+export const UserModel = mongoose.model('User', userSchema);
