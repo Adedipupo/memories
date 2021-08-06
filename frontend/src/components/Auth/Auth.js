@@ -8,10 +8,12 @@ import useStyles from './styles.js';
 import Input from './Input.js';
 import Icon from './Icon.js';
 
+const initialState = {firstName: '',lastName: '', email: '', password: '', confirmPassword: ''}
 
 const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
+    const [formData, setFormData] = useState(initialState);
 
     const dispatch = useDispatch();
     const history = useHistory();
