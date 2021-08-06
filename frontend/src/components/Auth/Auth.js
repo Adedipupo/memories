@@ -12,6 +12,7 @@ const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
 
+    const dispatch = useDispatch();
     const classes = useStyles();
 
 
@@ -32,7 +33,8 @@ const Auth = () => {
         const token = res?.tokenId;
 
         try {
-            dispatch({type: 'AUTH', data: {result,token}})
+            dispatch({ type: 'AUTH', data: { result, token } });
+        
         } catch (error) {
             console.log(error)
         }
