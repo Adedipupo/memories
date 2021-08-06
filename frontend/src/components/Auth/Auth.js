@@ -3,6 +3,7 @@ import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { GoogleLogin } from 'react-google-login';
 import {useDispatch} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import useStyles from './styles.js';
 import Input from './Input.js';
 import Icon from './Icon.js';
@@ -13,6 +14,7 @@ const Auth = () => {
     const [isSignup, setIsSignup] = useState(false);
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const classes = useStyles();
 
 
@@ -34,6 +36,8 @@ const Auth = () => {
 
         try {
             dispatch({ type: 'AUTH', data: { result, token } });
+
+            history.push('/');
         
         } catch (error) {
             console.log(error)
