@@ -21,12 +21,13 @@ const Form = ({currentId,setCurrentId}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(currentId){
-            dispatch(updatePost(currentId,postData))
-        }else{
+        if(currentId === 0){
             dispatch(createPost({...postData,name: user?.result?.name}))
+            clear();
+        }else{
+            dispatch(updatePost({...postData,name: user?.result?.name}))
+            clear();
         }
-        clear();
     }
 
     const clear = () => {
