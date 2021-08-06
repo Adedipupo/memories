@@ -26,7 +26,7 @@ export const signIn = async (req, res) => {
 };
 
 export const signUp = async (req, res) => {
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password,confirmPassword, firstName, lastName } = req.body;
 
   try {
     const user = await UserModel.findOne({ email });
@@ -35,6 +35,7 @@ export const signUp = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
+    if(password != confirmPassword) return res.status(400).json({message: "Password mismatch"})
     const result = await UserModal.create({ email, password: hashedPassword, name: `${firstName} ${lastName}` });
 
     const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
