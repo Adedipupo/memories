@@ -8,7 +8,7 @@ import {useSelector} from 'react-redux';
 
 
 const Form = ({currentId,setCurrentId}) => {
-    const [postData, setPostData] = useState({ author: '', title: '', message: '', tags: '', selectedFile: '' })
+    const [postData, setPostData] = useState({ title: '', message: '', tags: '', selectedFile: '' })
     const post = useSelector(state => currentId ? state.posts.find((p)=> p._id === currentId) : null)
 
     const classes = useStyles();
@@ -30,7 +30,7 @@ const Form = ({currentId,setCurrentId}) => {
 
     const clear = () => {
         setCurrentId(0);
-        setPostData({ author: '', title: '', message: '', tags: '', selectedFile: '' });
+        setPostData({title: '', message: '', tags: '', selectedFile: '' });
     }
 
 
