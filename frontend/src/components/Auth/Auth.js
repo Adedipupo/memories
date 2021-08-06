@@ -6,10 +6,12 @@ import Input from './Input.js';
 
 
 const Auth = () => {
-    const [password,setPassword] = useState('');
+    const [showPassword,setShowPassword] = useState(false);
 
     const classes = useStyles();
     const isSignup = false;
+
+    const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
     const handleSubmit = (e) => {
         e.preventDefault()
     }
@@ -34,7 +36,7 @@ const Auth = () => {
                         )
                     }
                     <Input name="email" label="Email Address" handleChange={handleChange} type="email"/>
-                    <Input name="password" label="Password" handleChange={handleChange} type="password"/>
+                    <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword}/>
                 </Grid>
               </form>
             </Paper>
