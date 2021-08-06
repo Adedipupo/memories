@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({baseURL: 'https://pro-memories-web-app.herokuapp.com/api/v1/memories' })
+const API = axios.create({baseURL: 'http://localhost:5000/api/v1/memories' })
 
 export const fetchPosts = () => API.get('/posts');
 export const createPost = (newPost) => API.post('/posts/create', newPost);
