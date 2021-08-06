@@ -31,6 +31,7 @@ const Auth = () => {
                             </>
                         )
                     }
+                    <Input name="email" label="Email Address" handleChange={handleChange} type="email"/>
                 </Grid>
               </form>
             </Paper>
