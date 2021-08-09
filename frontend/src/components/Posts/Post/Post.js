@@ -55,7 +55,7 @@ const Post = ({ post, setCurrentId }) => {
                <Likes />
             </Button>
 
-            {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+            {(user?.result?.googleId === post?.author || user?.result?._id === post?.author) && (
                <Button size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
                   <DeleteIcon fontSize="small" /> Delete
                </Button>
