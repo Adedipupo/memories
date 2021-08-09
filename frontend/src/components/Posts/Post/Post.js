@@ -38,11 +38,13 @@ const Post = ({ post, setCurrentId }) => {
             <Typography variant="h6">{post.name}</Typography>
             <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
          </div>
-         <div className={classes.overlay2}>
-            <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}>
-               <MoreHorizIcon fontSize="default" />
-            </Button>
-         </div>
+         {(user?.result?.googleId === post?.author || user?.result?._id === post?.author) && (
+      <div className={classes.overlay2}>
+        <Button onClick={() => setCurrentId(post._id)} style={{ color: 'white' }} size="small">
+          <MoreHorizIcon fontSize="default" />
+        </Button>
+      </div>
+      )}
          <div className={classes.details}>
             <Typography variant="body2" color="textSecondary">{post.tags.map((tag) => `#${tag} `)}</Typography>
          </div>
